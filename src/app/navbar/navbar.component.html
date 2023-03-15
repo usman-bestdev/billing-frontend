@@ -1,15 +1,13 @@
-<div>
-  <div style="display: flex; justify-content: center; align-items: center">
-    <h1 style="margin: 0">Available Token</h1>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <div>
-      {{ user.token }}
-    </div>
-  </div>
-  <div style="display: flex; justify-content: center; align-items: center">
-    <h1 style="margin: 0">Logged in user</h1>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-
-    {{ user.email }}
+<div style="display: flex; justify-content: center; align-items: center">
+  <h1 style="margin: 0">Available Token</h1>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <div>
+    {{ userData?.token }}
   </div>
 </div>
+<div style="display: flex; justify-content: center; align-items: center">
+  <h1 style="margin: 0">Logged in user</h1>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  {{ userData?.email }}
+</div>
+<button (click)="logout()" mat-button>Logout</button>

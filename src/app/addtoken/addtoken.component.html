@@ -1,0 +1,26 @@
+<app-navbar
+  style="display: flex; margin: 0; justify-content: space-between"
+></app-navbar>
+<div class="mainDiv">
+  <mat-card style="display: flex; justify-content: center; align-items: center">
+    <mat-card-title>Add Token</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" class="formClass">
+        <mat-form-field appearance="outline">
+          <mat-label>Token</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Token"
+            formControlName="token"
+            autocomplete="off"
+          />
+        </mat-form-field>
+        <div style="display: flex">
+          <button (click)="onSubmit()" mat-button color="blue">Add</button>
+          <button (click)="onBack()" mat-button color="blue">Back</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

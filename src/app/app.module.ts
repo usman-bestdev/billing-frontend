@@ -18,9 +18,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatTableModule } from '@angular/material/table';
+import { AddtokenComponent } from './addtoken/addtoken.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    NavbarComponent,
+    AddtokenComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,6 +44,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ReactiveFormsModule,
     MatCardModule,
     MatSnackBarModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

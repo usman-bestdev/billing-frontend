@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { DashboardService } from './dashboard.service';
 
@@ -14,39 +15,67 @@ export class DashboardComponent {
   formErrors: any;
 
   constructor(
-    private service: AppService,
-    private formBuilder: FormBuilder,
+    private service: DashboardService,
+    private appService: AppService,
+    private _router: Router,
     private _snackbar: MatSnackBar
   ) {}
-  userData: any;
-  loadNavbar: Boolean = false;
+  displayedColumns: string[] = ['title', 'cost', 'action'];
+  dataSource: any;
+  routeInvoke: any;
   ngOnInit(): void {
-    this.getUserRecord();
+    this.getRecord();
+    this.getUserTokenRecord();
   }
-  getUserRecord() {
-    this.service.getUserData().subscribe(
+
+  getRecord() {
+    this.service.getAllRoutes().subscribe(
       (res) => {
         if (res) {
-          this.userData = res;
-          this.loadNavbar = true;
+          this.dataSource = res;
         }
       },
       (err) => {}
     );
   }
 
-  setupform() {
-    this.form = this.formBuilder.group({
-      token: [null],
-    });
-  } // func
-
-  onSubmit() {
-    this.form.markAllAsTouched();
-    this.form.markAsDirty();
-    this.form.updateValueAndValidity();
-
-    if (this.form.valid) {
-    }
+  getUserTokenRecord() {
+    this.service.getUserTokenRecord().subscribe(
+      (res) => {
+        if (res) {
+          this.routeInvoke = res;
+        }
+      },
+      (err) => {}
+    );
   }
+
+  hitRoute(id: number) {
+    this.service.invokeToken(id).subscribe(
+      (res) => {
+        if (res) {
+          this.appService.navBarData.next(true);
+          this.getUserTokenRecord();
+        }
+      },
+      (err) => {}
+    );
+  }
+  addToken() {
+    this._router.navigateByUrl('/token');
+  }
+  // setupform() {
+  //   this.form = this.formBuilder.group({
+  //     token: [null],
+  //   });
+  // } // func
+
+  // onSubmit() {
+  //   this.form.markAllAsTouched();
+  //   this.form.markAsDirty();
+  //   this.form.updateValueAndValidity();
+
+  //   if (this.form.valid) {
+  //   }
+  // }
 }
