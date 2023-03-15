@@ -11,7 +11,7 @@ import { AppService } from '../app.service';
 })
 export class NavbarComponent {
   private subscription: Subscription = new Subscription();
-  @Input() type = 'user'
+  @Input() type = 'user';
   constructor(
     private app: AppService,
     private cookieService: CookieService,
@@ -19,7 +19,7 @@ export class NavbarComponent {
   ) {
     this.subscription.add(
       this.app.navBarData.subscribe((value: Boolean) => {
-        if (value) this.getUserRecord();
+        if (value && this.type == 'user') this.getUserRecord();
       })
     );
   }

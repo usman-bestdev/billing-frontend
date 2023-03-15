@@ -20,9 +20,7 @@ export class AdminDashboardComponent {
 
   constructor(
     private service: AdminDashboardService,
-    private appService: AppService,
-    private _router: Router,
-    private _snackbar: MatSnackBar
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
