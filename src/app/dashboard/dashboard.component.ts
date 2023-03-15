@@ -20,7 +20,13 @@ export class DashboardComponent {
     private _router: Router,
     private _snackbar: MatSnackBar
   ) {}
-  displayedColumns: string[] = ['title', 'cost', 'action', 'invoke'];
+  displayedColumns: string[] = [
+    'title',
+    'cost',
+    'action',
+    'invoke',
+    'totalCost',
+  ];
   dataSource: any;
   routeInvoke: any;
   ngOnInit(): void {
