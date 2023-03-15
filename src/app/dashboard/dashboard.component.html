@@ -10,7 +10,12 @@
     align-items: center;
   "
 >
-  <button mat-button class="divMargin" (click)="addToken()">
+  <button
+    class="divMargin"
+    (click)="addToken()"
+    mat-stroked-button
+    color="primary"
+  >
     Purchase Token
   </button>
   <div *ngFor="let item of routeInvoke" class="divMargin">
@@ -32,7 +37,13 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let element">
-          <button (click)="hitRoute(element.id)">Hit route</button>
+          <button
+            (click)="hitRoute(element.id)"
+            mat-stroked-button
+            color="accent"
+          >
+            Hit route
+          </button>
         </td>
       </ng-container>
 
