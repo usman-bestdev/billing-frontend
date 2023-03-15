@@ -50,8 +50,8 @@ export class DashboardService {
       );
   }
 
-  addToken(token: number) {
-    let data: any = { token };
+  addToken(token: { token: number }) {
+    let data: any = token;
     return this.http
       .post('http://localhost:3000/user-token/add', data, {
         withCredentials: true,

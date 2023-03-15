@@ -26,7 +26,7 @@ export class AddtokenComponent {
   }
   setupForm() {
     this.form = this.formBuilder.group({
-      email: [null, [Validators.required]],
+      token: [null, [Validators.required]],
     });
   } // func
 
@@ -44,5 +44,7 @@ export class AddtokenComponent {
       );
     }
   }
-  onBack() {}
+  onBack() {
+    this._router.navigateByUrl('/dashboard');
+  }
 }
