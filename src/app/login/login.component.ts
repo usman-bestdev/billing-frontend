@@ -1,12 +1,5 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
-import {
-  FormGroup,
-  Validators,
-  FormBuilder,
-  AbstractControl,
-} from '@angular/forms';
-import { Subscriber } from 'rxjs';
+import { Component } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 
@@ -24,7 +17,6 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private login: LoginService,
-    private _snackbar: MatSnackBar,
     private _router: Router
   ) {}
 
@@ -72,11 +64,7 @@ export class LoginComponent {
         (res: any) => {
           if (res) this._router.navigateByUrl('/dashboard');
         },
-        (err) => {
-          this._snackbar.open(err.message, '', {
-            panelClass: ['snack_danger'],
-          });
-        }
+        (err) => {}
       );
     }
   }

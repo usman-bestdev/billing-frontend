@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, finalize, map } from 'rxjs';
+import { AppService } from '../app.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardService {
-  constructor(private http: HttpClient, private _snackbar: MatSnackBar) {}
+  constructor(private http: HttpClient, private app: AppService) {}
 
   getAllRoutes() {
     return this.http
@@ -15,9 +15,7 @@ export class DashboardService {
       .pipe(
         map((res) => res),
         catchError(async (err) => {
-          this._snackbar.open(err.error.message, '', {
-            panelClass: ['snack_danger'],
-          });
+          this.app.handleError(err);
         }),
         finalize(() => {})
       );
@@ -30,9 +28,7 @@ export class DashboardService {
       .pipe(
         map((res) => res),
         catchError(async (err) => {
-          this._snackbar.open(err.error.message, '', {
-            panelClass: ['snack_danger'],
-          });
+          this.app.handleError(err);
         }),
         finalize(() => {})
       );
@@ -47,9 +43,7 @@ export class DashboardService {
       .pipe(
         map((res) => res),
         catchError(async (err) => {
-          this._snackbar.open(err.error.message, '', {
-            panelClass: ['snack_danger'],
-          });
+          this.app.handleError(err);
         }),
         finalize(() => {})
       );

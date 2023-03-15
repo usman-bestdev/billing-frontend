@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
@@ -15,7 +13,6 @@ export class NavbarComponent {
   private subscription: Subscription = new Subscription();
 
   constructor(
-    private formBuilder: FormBuilder,
     private app: AppService,
     private cookieService: CookieService,
     private _router: Router

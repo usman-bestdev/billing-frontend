@@ -2,12 +2,17 @@ import { map, catchError, finalize, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-  constructor(private http: HttpClient, private _snackbar: MatSnackBar) {}
+  constructor(
+    private http: HttpClient,
+    private _snackbar: MatSnackBar,
+    public router: Router
+  ) {}
   navBarData: BehaviorSubject<any> = new BehaviorSubject(null);
 
   getUserData() {
@@ -16,11 +21,17 @@ export class AppService {
       .pipe(
         map((res) => res),
         catchError(async (err) => {
-          this._snackbar.open(err.error.message, '', {
-            panelClass: ['snack_danger'],
-          });
+          this.handleError(err);
         }),
         finalize(() => {})
       );
+  }
+  handleError(err: any) {
+    if (err.error.statusCode == 444) {
+      this.router.navigateByUrl('/login');
+    } else
+      this._snackbar.open(err.error.message, '', {
+        panelClass: ['snack_danger'],
+      });
   }
 }

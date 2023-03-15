@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { DashboardService } from '../dashboard/dashboard.service';
@@ -17,7 +16,6 @@ export class AddtokenComponent {
     private formBuilder: FormBuilder,
     private dashboardService: DashboardService,
     private appService: AppService,
-    private _snackbar: MatSnackBar,
     private _router: Router
   ) {}
 

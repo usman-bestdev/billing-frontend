@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { DashboardService } from './dashboard.service';
@@ -11,14 +9,10 @@ import { DashboardService } from './dashboard.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  form!: FormGroup;
-  formErrors: any;
-
   constructor(
     private service: DashboardService,
     private appService: AppService,
-    private _router: Router,
-    private _snackbar: MatSnackBar
+    private _router: Router
   ) {}
   displayedColumns: string[] = [
     'title',
