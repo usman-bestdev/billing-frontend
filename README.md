@@ -1,27 +1,30 @@
-# MyApp
+## Node
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+version 18.10.0
 
-## Development server
+## Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular 15
 
-## Code scaffolding
+## Material
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular Material
 
-## Build
+## Setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+use `npm` to install packages
 
-## Running unit tests
+## nvm
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+use nvm to explicitly select node version 18.10.0
 
-## Running end-to-end tests
+## Guard
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Implement `auth guard`
 
-## Further help
+## Description
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Role base login (user,admin).
+2. User can add token and hint specified route according to the cost.
+3. Admin can see the users and number of routes hit by user.
+4. Admin can update the cost of specific route.

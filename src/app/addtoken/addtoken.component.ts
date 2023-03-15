@@ -43,6 +43,6 @@ export class AddtokenComponent {
     }
   }
   onBack() {
-    this._router.navigateByUrl('/user-dashboard');
+    this._router.navigateByUrl('/dashboard');
   }
 }

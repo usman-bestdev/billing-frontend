@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  ERR_Email = 'Email is required!';
-  ERR_PASSWORD = 'Password is required!';
-
   form!: FormGroup;
   formErrors: any;
   constructor(
@@ -21,36 +18,14 @@ export class LoginComponent {
   ) {}
 
   ngOnInit(): void {
-    this.setupform();
+    this.setupForm();
   }
 
-  setupform() {
-    this.formErrors = {
-      email: {},
-      password: {},
-    };
+  setupForm() {
     this.form = this.formBuilder.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
       type: ['user'],
-    });
-
-    // value change at form level
-    this.form.valueChanges.subscribe(() => {
-      for (const field in this.formErrors) {
-        if (!this.formErrors.hasOwnProperty(field)) {
-          continue;
-        }
-
-        // Clear previous errors
-        this.formErrors[field] = {};
-
-        // Get the control
-        const control = this.form.get(field);
-        if (control && !control.valid) {
-          this.formErrors[field] = control.errors;
-        }
-      }
     });
   } // func
 
