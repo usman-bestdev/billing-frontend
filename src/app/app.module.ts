@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import { AddtokenComponent } from './addtoken/addtoken.component';
+import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AddtokenComponent } from './addtoken/addtoken.component';
     DashboardComponent,
     NavbarComponent,
     AddtokenComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

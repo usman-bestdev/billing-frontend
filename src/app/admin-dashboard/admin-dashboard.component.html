@@ -1,0 +1,50 @@
+<app-navbar
+  [type]="'admin'"
+  style="display: flex; margin: 0; justify-content: space-between"
+></app-navbar>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+  "
+>
+<!--  <button mat-button class="divMargin" (click)="addToken()">-->
+<!--    Purchase Token-->
+<!--  </button>-->
+<!--  <div *ngFor="let item of routeInvoke" class="divMargin">-->
+<!--    Route "{{ item.route.title }}" invoke-->
+<!--    {{ item.invoke > 1 ? item.invoke + " times" : item.invoke + " time" }}.-->
+<!--  </div>-->
+  <div style="width: 50%" class="divMargin">
+    <div *ngFor="let item of data">
+      <h2>{{item.email}}</h2>
+    <table mat-table [dataSource]="item?.detail" class="mat-elevation-z8">
+<!--      <ng-container matColumnDef="email">-->
+<!--        <th mat-header-cell *matHeaderCellDef>Email</th>-->
+<!--        <td mat-cell *matCellDef="let element">{{ element.email }}</td>-->
+<!--      </ng-container>-->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Route</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>Cost</th>
+        <td mat-cell *matCellDef="let element">{{ element.cost }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let element">{{ element.total }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    </div>
+
+  </div>
+</div>

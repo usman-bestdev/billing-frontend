@@ -62,7 +62,12 @@ export class LoginComponent {
     if (this.form.valid) {
       this.login.login(this.form.value).subscribe(
         (res: any) => {
-          if (res) this._router.navigateByUrl('/dashboard');
+          if (res) {
+            if (this.form.value.type == 'user')
+              this._router.navigateByUrl('/dashboard');
+            if (this.form.value.type == 'admin')
+              this._router.navigateByUrl('/admin-dashboard');
+          }
         },
         (err) => {}
       );

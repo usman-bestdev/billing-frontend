@@ -15,9 +15,10 @@ export class AppService {
   ) {}
   navBarData: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  getUserData() {
+  getUserData(type:string) {
+    let params: any = {type};
     return this.http
-      .get('http://localhost:3000/user', { withCredentials: true })
+      .get('http://localhost:3000/user', { withCredentials: true, params })
       .pipe(
         map((res) => res),
         catchError(async (err) => {

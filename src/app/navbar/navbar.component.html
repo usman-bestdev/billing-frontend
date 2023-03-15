@@ -1,19 +1,19 @@
 <div style="display: flex; justify-content: center; align-items: center">
-  &nbsp;&nbsp;Tokens &nbsp;&nbsp;
-  <h2 style="margin: 0">
+  <h1 style="margin: 0" *ngIf="type != 'admin'">Tokens</h1>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <div *ngIf="type != 'admin'">
     {{ userData?.token }}
-  </h2>
-</div>
-<div style="display: flex; justify-content: center; align-items: center">
-  <h2 style="margin: 0">
-    {{ userData?.email }}
-  </h2>
-</div>
-<button
-  (click)="logout()"
-  mat-raised-button
-  color="primary"
-  style="margin: 10px"
->
-  Logout
-</button>
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center">
+    <h2 style="margin: 0">
+      {{ userData?.email }}
+    </h2>
+  </div>
+  <button
+    (click)="logout()"
+    mat-raised-button
+    color="primary"
+    style="margin: 10px"
+  >
+    Logout
+  </button>

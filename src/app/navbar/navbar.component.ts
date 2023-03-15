@@ -11,7 +11,7 @@ import { AppService } from '../app.service';
 })
 export class NavbarComponent {
   private subscription: Subscription = new Subscription();
-
+  @Input() type = 'user'
   constructor(
     private app: AppService,
     private cookieService: CookieService,
@@ -29,7 +29,7 @@ export class NavbarComponent {
     this.getUserRecord();
   }
   getUserRecord() {
-    this.app.getUserData().subscribe(
+    this.app.getUserData(this.type).subscribe(
       (res) => {
         if (res) {
           this.userData = res;
