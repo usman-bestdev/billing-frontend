@@ -22,19 +22,7 @@ export class DashboardService {
         finalize(() => {})
       );
   }
-  getUserTokenRecord() {
-    return this.http
-      .get('http://localhost:3000/user-token', { withCredentials: true })
-      .pipe(
-        map((res) => res),
-        catchError(async (err) => {
-          this._snackbar.open(err.error.message, '', {
-            panelClass: ['snack_danger'],
-          });
-        }),
-        finalize(() => {})
-      );
-  }
+
   invokeToken(id: number) {
     let data: any = { routeId: id };
     return this.http

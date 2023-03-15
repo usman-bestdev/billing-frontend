@@ -20,12 +20,11 @@ export class DashboardComponent {
     private _router: Router,
     private _snackbar: MatSnackBar
   ) {}
-  displayedColumns: string[] = ['title', 'cost', 'action'];
+  displayedColumns: string[] = ['title', 'cost', 'action', 'invoke'];
   dataSource: any;
   routeInvoke: any;
   ngOnInit(): void {
     this.getRecord();
-    this.getUserTokenRecord();
   }
 
   getRecord() {
@@ -39,23 +38,12 @@ export class DashboardComponent {
     );
   }
 
-  getUserTokenRecord() {
-    this.service.getUserTokenRecord().subscribe(
-      (res) => {
-        if (res) {
-          this.routeInvoke = res;
-        }
-      },
-      (err) => {}
-    );
-  }
-
   hitRoute(id: number) {
     this.service.invokeToken(id).subscribe(
       (res) => {
         if (res) {
           this.appService.navBarData.next(true);
-          this.getUserTokenRecord();
+          this.getRecord();
         }
       },
       (err) => {}
@@ -64,18 +52,4 @@ export class DashboardComponent {
   addToken() {
     this._router.navigateByUrl('/token');
   }
-  // setupform() {
-  //   this.form = this.formBuilder.group({
-  //     token: [null],
-  //   });
-  // } // func
-
-  // onSubmit() {
-  //   this.form.markAllAsTouched();
-  //   this.form.markAsDirty();
-  //   this.form.updateValueAndValidity();
-
-  //   if (this.form.valid) {
-  //   }
-  // }
 }
