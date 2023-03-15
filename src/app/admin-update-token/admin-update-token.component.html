@@ -1,0 +1,52 @@
+<app-navbar
+  [type]="'admin'"
+  style="display: flex; margin: 0; justify-content: space-between"
+></app-navbar>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+  "
+>
+  <div style="width: 50%" class="divMargin">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Route</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>Cost</th>
+        <td mat-cell *matCellDef="let element">{{ element.cost }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin: 10px"
+            (click)="update(element.id)"
+          >
+            Update Cost
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin: 10px"
+    (click)="onBack()"
+  >
+    Back
+  </button>
+</div>

@@ -1,0 +1,19 @@
+<div class="mainDiv">
+  <form [formGroup]="form" class="formClass">
+    <mat-form-field appearance="outline">
+      <mat-label>Cost</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="Cost"
+        formControlName="cost"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <div style="display: flex; justify-content: space-evenly">
+      <button (click)="onSubmit()" mat-raised-button color="primary">
+        Add
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {BehaviorSubject, catchError, finalize, map} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError, finalize, map } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminDashboardService {
-
   constructor(private http: HttpClient, private _snackbar: MatSnackBar) {}
-  navBarData: BehaviorSubject<any> = new BehaviorSubject(null);
 
   getUsersData() {
     return this.http
@@ -23,5 +21,5 @@ export class AdminDashboardService {
         }),
         finalize(() => {})
       );
-  }}
-
+  }
+}

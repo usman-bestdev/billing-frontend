@@ -1,7 +1,17 @@
-<div style="display: flex; justify-content: center; align-items: center">
-  <h1 style="margin: 0" *ngIf="type != 'admin'">Tokens</h1>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <div *ngIf="type != 'admin'">
+<div
+  style="
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  "
+>
+  <div
+    *ngIf="type != 'admin'"
+    style="display: flex; justify-content: center; align-items: center"
+  >
+    <h1 style="margin: 0" *ngIf="type != 'admin'">Tokens</h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;
     {{ userData?.token }}
   </div>
   <div style="display: flex; justify-content: center; align-items: center">
@@ -17,3 +27,4 @@
   >
     Logout
   </button>
+</div>

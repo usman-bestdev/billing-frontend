@@ -19,7 +19,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import { AddtokenComponent } from './addtoken/addtoken.component';
-import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminUpdateTokenComponent } from './admin-update-token/admin-update-token.component';
+import { AdminUpdateTokenDialogComponent } from './admin-update-token-dialog/admin-update-token-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     DashboardComponent,
     NavbarComponent,
     AddtokenComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminUpdateTokenComponent,
+    AdminUpdateTokenDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     MatCardModule,
     MatSnackBarModule,
     MatTableModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
